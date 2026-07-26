@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>cupcake</title>
+<style>:root {
+  color-scheme: light;
+  --bg: #fcfcfc;
+  --fg: #252525;
+  --border: #e2e2e2;
+  --notice-fg: #6b4d12;
+  --notice-bg: #fdf5e6;
+  --notice-border: #c98a24;
+  --print-bg: #fff;
+  --print-adjust: economy;
+  --print-notice-fg: #333333;
+  --print-notice-bg: #f4f4f4;
+  --print-notice-border: #999999;
+}
+
+/* Deliberately not viewer-themed. This reproduces a document whose colours are
+   absolute - Samsung stores the paper colour and opaque highlights - so the
+   palette comes from the note itself, via the :root block above. */
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 2.5rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 20pt; line-height: 1.35;
+  color: var(--fg); background: var(--bg);
+}
+/* The chrome is sized in em so it stays in proportion to the note's own text. */
+.doc { max-width: 46rem; margin: 0 auto; }
+h1.note-title { font-size: 1.667em; font-weight: 700; margin: 0 0 1.5rem; }
+.line { white-space: pre-wrap; word-wrap: break-word; min-height: 1.35em; }
+.listline { display: flex; align-items: baseline; gap: .55em; }
+.listline .marker {
+  flex: 0 0 auto; min-width: 1.2em; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.listline .content { flex: 1 1 auto; white-space: pre-wrap; }
+.checked { opacity: .55; text-decoration: line-through; }
+.inline-obj { opacity: .45; }
+.notice {
+  max-width: 46rem; margin: 0 auto 1.75rem; padding: .7rem .9rem;
+  border-left: 3px solid var(--notice-border); background: var(--notice-bg);
+  font-size: .875em; line-height: 1.45; color: var(--notice-fg);
+}
+.notice strong { display: block; margin-bottom: .2rem; }
+.pages { max-width: 46rem; margin: 2.5rem auto 0; }
+.pages h2 {
+  font-size: .833em; text-transform: uppercase; letter-spacing: .08em;
+  color: #8a8a8a; font-weight: 600; margin: 0 0 .75rem;
+}
+.page {
+  position: relative; width: 100%; margin: 0 auto 1.5rem;
+  container-type: inline-size;             /* text below scales in cqw */
+  border: 1px solid var(--border); border-radius: 2px;
+  overflow: hidden;
+  /* its own background and text colour are set inline, per page */
+}
+.textbox {
+  position: absolute;
+  font-size: 3.333cqw;            /* the default size, of 600pt */
+  line-height: 1.35;
+}
+.textbox .line { min-height: 0; }
+@media print {
+  /* A light note prints on the paper's own white; a dark one has to keep its
+     background or the light text prints invisibly. */
+  body { background: var(--print-bg); padding: 0;
+         print-color-adjust: var(--print-adjust); }
+  .notice { border-left-color: var(--print-notice-border);
+            background: var(--print-notice-bg); color: var(--print-notice-fg); }
+}
+</style></head><body>
+<div class="doc">
+<div class="line">&nbsp;</div>
+<div class="line listline"><span class="marker">1.</span><span class="content">Cupcake ipsum dolor sit amet shortbread <span style="color:#6cdd8f">apple</span> pie topping tootsie roll. </span></div>
+<div class="line listline"><span class="marker">2.</span><span class="content"><strong>Oat cake cake croissant cookie candy. </strong></span></div>
+<div class="line listline"><span class="marker">3.</span><span class="content">Dessert gummi bears tart cupcake icing. </span></div>
+<div class="line"><em>Liquorice cheesecake jelly sesame snaps jelly beans tiramisu brownie cotton candy tart. </em></div>
+<div class="line">Candy chupa chups powder powder lollipop <span style="color:#9933ff">marshmallow</span> sesame snaps bear claw topping. </div>
+<div class="line"><u>Chocolate cake powder croissant </u><span style="color:#a56133"><u>toffee</u></span><u> soufflé.</u> </div>
+<div class="line">Toffee dragée sugar plum oat cake cupcake oat cake marzipan. </div>
+<div class="line" style="margin-left:2em">Powder carrot cake <span style="color:#ffcb30">carrot</span> cake dragée macaroon cupcake soufflé chocolate cake. </div>
+<div class="line" style="margin-left:4em">Donut chocolate bar topping brownie <span style="background-color:#ffb426">gingerbread</span> ice cream muffin dessert pudding.</div>
+<div class="line">&nbsp;</div>
+<div class="line"><s>Halvah marzipan candy canes shortbread candy icing chocolate cake. </s></div>
+<div class="line">&nbsp;</div>
+<div class="line"><span style="font-size:25pt">Toffee ice cream danish icing ice cream.</span> </div>
+<div class="line">&nbsp;</div>
+<div class="line listline"><span class="marker">•</span><span class="content">Jelly beans topping pastry jelly-o jelly-o. </span></div>
+<div class="line listline"><span class="marker">☐</span><span class="content">Soufflé jelly-o gingerbread jelly-o tart liquorice shortbread.</span></div>
+<div class="line checked listline"><span class="marker">☑</span><span class="content">Gummies tart jelly danish pastry gingerbread pie.</span></div>
+</div>
+</body></html>

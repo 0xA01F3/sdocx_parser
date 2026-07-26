@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Raven</title>
+<style>:root {
+  color-scheme: dark;
+  --bg: #010101;
+  --fg: #dadada;
+  --border: #3a3a3a;
+  --notice-fg: #e8cf9a;
+  --notice-bg: #241d0e;
+  --notice-border: #c98a24;
+  --print-bg: #010101;
+  --print-adjust: exact;
+  --print-notice-fg: #e8cf9a;
+  --print-notice-bg: #241d0e;
+  --print-notice-border: #c98a24;
+}
+
+/* Deliberately not viewer-themed. This reproduces a document whose colours are
+   absolute - Samsung stores the paper colour and opaque highlights - so the
+   palette comes from the note itself, via the :root block above. */
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 2.5rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 20pt; line-height: 1.35;
+  color: var(--fg); background: var(--bg);
+}
+/* The chrome is sized in em so it stays in proportion to the note's own text. */
+.doc { max-width: 46rem; margin: 0 auto; }
+h1.note-title { font-size: 1.667em; font-weight: 700; margin: 0 0 1.5rem; }
+.line { white-space: pre-wrap; word-wrap: break-word; min-height: 1.35em; }
+.listline { display: flex; align-items: baseline; gap: .55em; }
+.listline .marker {
+  flex: 0 0 auto; min-width: 1.2em; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.listline .content { flex: 1 1 auto; white-space: pre-wrap; }
+.checked { opacity: .55; text-decoration: line-through; }
+.inline-obj { opacity: .45; }
+.notice {
+  max-width: 46rem; margin: 0 auto 1.75rem; padding: .7rem .9rem;
+  border-left: 3px solid var(--notice-border); background: var(--notice-bg);
+  font-size: .875em; line-height: 1.45; color: var(--notice-fg);
+}
+.notice strong { display: block; margin-bottom: .2rem; }
+.pages { max-width: 46rem; margin: 2.5rem auto 0; }
+.pages h2 {
+  font-size: .833em; text-transform: uppercase; letter-spacing: .08em;
+  color: #8a8a8a; font-weight: 600; margin: 0 0 .75rem;
+}
+.page {
+  position: relative; width: 100%; margin: 0 auto 1.5rem;
+  container-type: inline-size;             /* text below scales in cqw */
+  border: 1px solid var(--border); border-radius: 2px;
+  overflow: hidden;
+  /* its own background and text colour are set inline, per page */
+}
+.textbox {
+  position: absolute;
+  font-size: 3.333cqw;            /* the default size, of 600pt */
+  line-height: 1.35;
+}
+.textbox .line { min-height: 0; }
+@media print {
+  /* A light note prints on the paper's own white; a dark one has to keep its
+     background or the light text prints invisibly. */
+  body { background: var(--print-bg); padding: 0;
+         print-color-adjust: var(--print-adjust); }
+  .notice { border-left-color: var(--print-notice-border);
+            background: var(--print-notice-bg); color: var(--print-notice-fg); }
+}
+</style></head><body>
+<div class="doc">
+<div class="line">Once upon a midnight dreary, while I pondered, weak and weary,</div>
+<div class="line">Over many a quaint and curious volume of forgotten lore—</div>
+<div class="line">    While I nodded, nearly napping, suddenly there came a tapping,</div>
+<div class="line">As of some one gently rapping, rapping at my chamber door.</div>
+<div class="line">“’Tis some visitor,” I muttered, “tapping at my chamber door—</div>
+<div class="line">            Only this and nothing more.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Ah, distinctly I remember it was in the bleak December;</div>
+<div class="line">And each separate dying ember wrought its ghost upon the floor.</div>
+<div class="line">    Eagerly I wished the morrow;—vainly I had sought to borrow</div>
+<div class="line">    From my books surcease of sorrow—sorrow for the lost Lenore—</div>
+<div class="line">For the rare and radiant maiden whom the angels name Lenore—</div>
+<div class="line">            Nameless here for evermore.</div>
+<div class="line">&nbsp;</div>
+<div class="line">    And the silken, sad, uncertain rustling of each purple curtain</div>
+<div class="line">Thrilled me—filled me with fantastic terrors never felt before;</div>
+<div class="line">    So that now, to still the beating of my heart, I stood repeating</div>
+<div class="line">    “’Tis some visitor entreating entrance at my chamber door—</div>
+<div class="line">Some late visitor entreating entrance at my chamber door;—</div>
+<div class="line">            This it is and nothing more.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Presently my soul grew stronger; hesitating then no longer,</div>
+<div class="line">“Sir,” said I, “or Madam, truly your forgiveness I implore;</div>
+<div class="line">    But the fact is I was napping, and so gently you came rapping,</div>
+<div class="line">    And so faintly you came tapping, tapping at my chamber door,</div>
+<div class="line">That I scarce was sure I heard you”—here I opened wide the door;—</div>
+<div class="line">            Darkness there and nothing more.</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Deep into that darkness peering, long I stood there wondering, fearing,</div>
+<div class="line">Doubting, dreaming dreams no mortal ever dared to dream before;</div>
+<div class="line">    But the silence was unbroken, and the stillness gave no token,</div>
+<div class="line">    And the only word there spoken was the whispered word, “Lenore?”</div>
+<div class="line">This I whispered, and an echo murmured back the word, “Lenore!”—</div>
+<div class="line">            Merely this and nothing more.</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Back into the chamber turning, all my soul within me burning,</div>
+<div class="line">Soon again I heard a tapping somewhat louder than before.</div>
+<div class="line">    “Surely,” said I, “surely that is something at my window lattice;</div>
+<div class="line">      Let me see, then, what thereat is, and this mystery explore—</div>
+<div class="line">Let my heart be still a moment and this mystery explore;—</div>
+<div class="line">            ’Tis the wind and nothing more!”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Open here I flung the shutter, when, with many a flirt and flutter,</div>
+<div class="line">In there stepped a stately Raven of the saintly days of yore;</div>
+<div class="line">    Not the least obeisance made he; not a minute stopped or stayed he;</div>
+<div class="line">    But, with mien of lord or lady, perched above my chamber door—</div>
+<div class="line">Perched upon a bust of Pallas just above my chamber door—</div>
+<div class="line">            Perched, and sat, and nothing more.</div>
+<div class="line">&nbsp;</div>
+<div class="line">Then this ebony bird beguiling my sad fancy into smiling,</div>
+<div class="line">By the grave and stern decorum of the countenance it wore,</div>
+<div class="line">“Though thy crest be shorn and shaven, thou,” I said, “art sure no craven,</div>
+<div class="line">Ghastly grim and ancient Raven wandering from the Nightly shore—</div>
+<div class="line">Tell me what thy lordly name is on the Night’s Plutonian shore!”</div>
+<div class="line">            Quoth the Raven “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Much I marvelled this ungainly fowl to hear discourse so plainly,</div>
+<div class="line">Though its answer little meaning—little relevancy bore;</div>
+<div class="line">    For we cannot help agreeing that no living human being</div>
+<div class="line">    Ever yet was blessed with seeing bird above his chamber door—</div>
+<div class="line">Bird or beast upon the sculptured bust above his chamber door,</div>
+<div class="line">            With such name as “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    But the Raven, sitting lonely on the placid bust, spoke only</div>
+<div class="line">That one word, as if his soul in that one word he did outpour.</div>
+<div class="line">    Nothing farther then he uttered—not a feather then he fluttered—</div>
+<div class="line">    Till I scarcely more than muttered “Other friends have flown before—</div>
+<div class="line">On the morrow he will leave me, as my Hopes have flown before.”</div>
+<div class="line">            Then the bird said “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Startled at the stillness broken by reply so aptly spoken,</div>
+<div class="line">“Doubtless,” said I, “what it utters is its only stock and store</div>
+<div class="line">    Caught from some unhappy master whom unmerciful Disaster</div>
+<div class="line">    Followed fast and followed faster till his songs one burden bore—</div>
+<div class="line">Till the dirges of his Hope that melancholy burden bore</div>
+<div class="line">            Of ‘Never—nevermore’.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    But the Raven still beguiling all my fancy into smiling,</div>
+<div class="line">Straight I wheeled a cushioned seat in front of bird, and bust and door;</div>
+<div class="line">    Then, upon the velvet sinking, I betook myself to linking</div>
+<div class="line">    Fancy unto fancy, thinking what this ominous bird of yore—</div>
+<div class="line">What this grim, ungainly, ghastly, gaunt, and ominous bird of yore</div>
+<div class="line">            Meant in croaking “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    This I sat engaged in guessing, but no syllable expressing</div>
+<div class="line">To the fowl whose fiery eyes now burned into my bosom’s core;</div>
+<div class="line">    This and more I sat divining, with my head at ease reclining</div>
+<div class="line">    On the cushion’s velvet lining that the lamp-light gloated o’er,</div>
+<div class="line">But whose velvet-violet lining with the lamp-light gloating o’er,</div>
+<div class="line">            She shall press, ah, nevermore!</div>
+<div class="line">&nbsp;</div>
+<div class="line">    Then, methought, the air grew denser, perfumed from an unseen censer</div>
+<div class="line">Swung by Seraphim whose foot-falls tinkled on the tufted floor.</div>
+<div class="line">    “Wretch,” I cried, “thy God hath lent thee—by these angels he hath sent thee</div>
+<div class="line">    Respite—respite and nepenthe from thy memories of Lenore;</div>
+<div class="line">Quaff, oh quaff this kind nepenthe and forget this lost Lenore!”</div>
+<div class="line">            Quoth the Raven “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    “Prophet!” said I, “thing of evil!—prophet still, if bird or devil!—</div>
+<div class="line">Whether Tempter sent, or whether tempest tossed thee here ashore,</div>
+<div class="line">    Desolate yet all undaunted, on this desert land enchanted—</div>
+<div class="line">    On this home by Horror haunted—tell me truly, I implore—</div>
+<div class="line">Is there—is there balm in Gilead?—tell me—tell me, I implore!”</div>
+<div class="line">            Quoth the Raven “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    “Prophet!” said I, “thing of evil!—prophet still, if bird or devil!</div>
+<div class="line">By that Heaven that bends above us—by that God we both adore—</div>
+<div class="line">    Tell this soul with sorrow laden if, within the distant Aidenn,</div>
+<div class="line">    It shall clasp a sainted maiden whom the angels name Lenore—</div>
+<div class="line">Clasp a rare and radiant maiden whom the angels name Lenore.”</div>
+<div class="line">            Quoth the Raven “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    “Be that word our sign of parting, bird or fiend!” I shrieked, upstarting—</div>
+<div class="line">“Get thee back into the tempest and the Night’s Plutonian shore!</div>
+<div class="line">    Leave no black plume as a token of that lie thy soul hath spoken!</div>
+<div class="line">    Leave my loneliness unbroken!—quit the bust above my door!</div>
+<div class="line">Take thy beak from out my heart, and take thy form from off my door!”</div>
+<div class="line">            Quoth the Raven “Nevermore.”</div>
+<div class="line">&nbsp;</div>
+<div class="line">    And the Raven, never flitting, still is sitting, still is sitting</div>
+<div class="line">On the pallid bust of Pallas just above my chamber door;</div>
+<div class="line">    And his eyes have all the seeming of a demon’s that is dreaming,</div>
+<div class="line">    And the lamp-light o’er him streaming throws his shadow on the floor;</div>
+<div class="line">And my soul from out that shadow that lies floating on the floor</div>
+<div class="line">            Shall be lifted—nevermore!</div>
+<div class="line">a</div>
+<div class="line" style="margin-left:2em">a</div>
+<div class="line" style="margin-left:4em">a</div>
+<div class="line" style="margin-left:6em">a</div>
+<div class="line" style="margin-left:8em">a</div>
+<div class="line" style="margin-left:10em">a</div>
+<div class="line" style="margin-left:12em">a</div>
+<div class="line" style="margin-left:14em">a</div>
+<div class="line" style="margin-left:16em">a</div>
+<div class="line" style="margin-left:18em">a</div>
+<div class="line" style="text-align:center">a</div>
+<div class="line" style="margin-left:2em;text-align:center">a</div>
+<div class="line" style="margin-left:4em;text-align:center">a</div>
+<div class="line" style="margin-left:6em;text-align:center">a</div>
+<div class="line" style="margin-left:8em;text-align:center">a</div>
+<div class="line" style="margin-left:10em;text-align:center">a</div>
+<div class="line" style="margin-left:12em;text-align:center">a</div>
+<div class="line" style="margin-left:14em;text-align:center">a</div>
+<div class="line" style="margin-left:16em;text-align:center">a</div>
+<div class="line" style="margin-left:18em;text-align:center">a</div>
+<div class="line" style="text-align:right">a</div>
+<div class="line" style="margin-left:2em;text-align:right">a</div>
+<div class="line" style="margin-left:4em;text-align:right">a</div>
+<div class="line" style="margin-left:6em;text-align:right">a</div>
+<div class="line" style="margin-left:8em;text-align:right">a</div>
+<div class="line" style="margin-left:10em;text-align:right">a</div>
+<div class="line" style="margin-left:12em;text-align:right">a</div>
+<div class="line" style="margin-left:14em;text-align:right">a</div>
+<div class="line" style="margin-left:16em;text-align:right">a</div>
+<div class="line" style="margin-left:18em;text-align:right">a</div>
+<div class="line" style="margin-left:4em">&nbsp;</div>
+<div class="line" style="text-align:right">right</div>
+<div class="line" style="text-align:center">centre</div>
+<div class="line">left</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line"><span style="color:#252525;font-size:73.3333pt">هذا نص عربي</span></div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line"><span style="color:#252525;font-size:40pt">αυτό είναι ελληνικό κείμενο</span></div>
+</div>
+</body></html>

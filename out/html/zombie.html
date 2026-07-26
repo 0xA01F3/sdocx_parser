@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>zombie</title>
+<style>:root {
+  color-scheme: light;
+  --bg: #fcfcfc;
+  --fg: #252525;
+  --border: #e2e2e2;
+  --notice-fg: #6b4d12;
+  --notice-bg: #fdf5e6;
+  --notice-border: #c98a24;
+  --print-bg: #fff;
+  --print-adjust: economy;
+  --print-notice-fg: #333333;
+  --print-notice-bg: #f4f4f4;
+  --print-notice-border: #999999;
+}
+
+/* Deliberately not viewer-themed. This reproduces a document whose colours are
+   absolute - Samsung stores the paper colour and opaque highlights - so the
+   palette comes from the note itself, via the :root block above. */
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 2.5rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 20pt; line-height: 1.35;
+  color: var(--fg); background: var(--bg);
+}
+/* The chrome is sized in em so it stays in proportion to the note's own text. */
+.doc { max-width: 46rem; margin: 0 auto; }
+h1.note-title { font-size: 1.667em; font-weight: 700; margin: 0 0 1.5rem; }
+.line { white-space: pre-wrap; word-wrap: break-word; min-height: 1.35em; }
+.listline { display: flex; align-items: baseline; gap: .55em; }
+.listline .marker {
+  flex: 0 0 auto; min-width: 1.2em; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.listline .content { flex: 1 1 auto; white-space: pre-wrap; }
+.checked { opacity: .55; text-decoration: line-through; }
+.inline-obj { opacity: .45; }
+.notice {
+  max-width: 46rem; margin: 0 auto 1.75rem; padding: .7rem .9rem;
+  border-left: 3px solid var(--notice-border); background: var(--notice-bg);
+  font-size: .875em; line-height: 1.45; color: var(--notice-fg);
+}
+.notice strong { display: block; margin-bottom: .2rem; }
+.pages { max-width: 46rem; margin: 2.5rem auto 0; }
+.pages h2 {
+  font-size: .833em; text-transform: uppercase; letter-spacing: .08em;
+  color: #8a8a8a; font-weight: 600; margin: 0 0 .75rem;
+}
+.page {
+  position: relative; width: 100%; margin: 0 auto 1.5rem;
+  container-type: inline-size;             /* text below scales in cqw */
+  border: 1px solid var(--border); border-radius: 2px;
+  overflow: hidden;
+  /* its own background and text colour are set inline, per page */
+}
+.textbox {
+  position: absolute;
+  font-size: 3.333cqw;            /* the default size, of 600pt */
+  line-height: 1.35;
+}
+.textbox .line { min-height: 0; }
+@media print {
+  /* A light note prints on the paper's own white; a dark one has to keep its
+     background or the light text prints invisibly. */
+  body { background: var(--print-bg); padding: 0;
+         print-color-adjust: var(--print-adjust); }
+  .notice { border-left-color: var(--print-notice-border);
+            background: var(--print-notice-bg); color: var(--print-notice-fg); }
+}
+</style></head><body>
+<div class="doc">
+<div class="line">Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. </div>
+<div class="line listline"><span class="marker">•</span><span class="content"><span style="background-color:#ff3636">De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? </span></span></div>
+<div class="line listline"><span class="marker">1.</span><span class="content">De apocalypsi gorger omero undead survivor dictum mauris. </span></div>
+<div class="line listline"><span class="marker">☐</span><span class="content">Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. </span></div>
+<div class="line listline" style="margin-left:2em"><span class="marker">A.</span><span class="content"><span style="color:#ff3636">Qui animated corpse, cricket bat max brucks terribilem incessu zomby. </span></span></div>
+<div class="line listline" style="margin-left:4em"><span class="marker">a.</span><span class="content">The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus.</span></div>
+<div class="line listline" style="margin-left:4em"><span class="marker">b.</span><span class="content">Zonbi tattered for solum oculi eorum defunctis go lum cerebro. </span></div>
+<div class="line checked listline" style="margin-left:4em"><span class="marker">☑</span><span class="content">Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. </span></div>
+</div>
+<div class="pages"><h2>Text boxes placed on pages</h2>
+<div class="page" style="aspect-ratio:1113 / 1575;background:#fcfcfc;color:#252525"><div class="textbox" style="left:12.129%;top:62.276%;width:33.333%"><div class="line">This text is in a text box</div></div><div class="textbox" style="left:53.639%;top:76.493%;width:33.333%;transform:rotate(20deg);transform-origin:50.00% 50.00%"><div class="line">This is also in a text box</div></div></div>
+</div>
+</body></html>

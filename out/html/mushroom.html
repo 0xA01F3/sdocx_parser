@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mushroom</title>
+<style>:root {
+  color-scheme: light;
+  --bg: #fcfcfc;
+  --fg: #252525;
+  --border: #e2e2e2;
+  --notice-fg: #6b4d12;
+  --notice-bg: #fdf5e6;
+  --notice-border: #c98a24;
+  --print-bg: #fff;
+  --print-adjust: economy;
+  --print-notice-fg: #333333;
+  --print-notice-bg: #f4f4f4;
+  --print-notice-border: #999999;
+}
+
+/* Deliberately not viewer-themed. This reproduces a document whose colours are
+   absolute - Samsung stores the paper colour and opaque highlights - so the
+   palette comes from the note itself, via the :root block above. */
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 2.5rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 20pt; line-height: 1.35;
+  color: var(--fg); background: var(--bg);
+}
+/* The chrome is sized in em so it stays in proportion to the note's own text. */
+.doc { max-width: 46rem; margin: 0 auto; }
+h1.note-title { font-size: 1.667em; font-weight: 700; margin: 0 0 1.5rem; }
+.line { white-space: pre-wrap; word-wrap: break-word; min-height: 1.35em; }
+.listline { display: flex; align-items: baseline; gap: .55em; }
+.listline .marker {
+  flex: 0 0 auto; min-width: 1.2em; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.listline .content { flex: 1 1 auto; white-space: pre-wrap; }
+.checked { opacity: .55; text-decoration: line-through; }
+.inline-obj { opacity: .45; }
+.notice {
+  max-width: 46rem; margin: 0 auto 1.75rem; padding: .7rem .9rem;
+  border-left: 3px solid var(--notice-border); background: var(--notice-bg);
+  font-size: .875em; line-height: 1.45; color: var(--notice-fg);
+}
+.notice strong { display: block; margin-bottom: .2rem; }
+.pages { max-width: 46rem; margin: 2.5rem auto 0; }
+.pages h2 {
+  font-size: .833em; text-transform: uppercase; letter-spacing: .08em;
+  color: #8a8a8a; font-weight: 600; margin: 0 0 .75rem;
+}
+.page {
+  position: relative; width: 100%; margin: 0 auto 1.5rem;
+  container-type: inline-size;             /* text below scales in cqw */
+  border: 1px solid var(--border); border-radius: 2px;
+  overflow: hidden;
+  /* its own background and text colour are set inline, per page */
+}
+.textbox {
+  position: absolute;
+  font-size: 3.333cqw;            /* the default size, of 600pt */
+  line-height: 1.35;
+}
+.textbox .line { min-height: 0; }
+@media print {
+  /* A light note prints on the paper's own white; a dark one has to keep its
+     background or the light text prints invisibly. */
+  body { background: var(--print-bg); padding: 0;
+         print-color-adjust: var(--print-adjust); }
+  .notice { border-left-color: var(--print-notice-border);
+            background: var(--print-notice-bg); color: var(--print-notice-fg); }
+}
+</style></head><body>
+<div class="doc">
+<div class="line" style="text-align:center"><span style="font-size:46.6667pt"><u><em><strong>The Fascinating World of Mushrooms</strong></em></u></span></div>
+<div class="line">&nbsp;</div>
+<div class="line">Fungi are some of the most diverse, mysterious, and ecologically important organisms on Earth. Neither plants nor animals, mushrooms belong to their own unique biological kingdom: <strong>Fungi</strong>.</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line"><span style="color:#a56133;font-size:25pt"><u><strong>Key Features of Fungi</strong></u></span></div>
+<div class="line">&nbsp;</div>
+<div class="line"><strong>The Hidden Network (Mycelium):</strong> What we typically call a &quot;mushroom&quot; is actually just the fruiting body—the reproductive structure—of a much larger organism. The main body of the fungus consists of a vast, underground network of thread-like cells called <strong>mycelium</strong>.</div>
+<div class="line">&nbsp;</div>
+<div class="line listline"><span class="marker">•</span><span class="content"><strong>Nature&#x27;s Recyclers:</strong> Fungi play a crucial role as decomposers. They break down dead organic matter, such as fallen trees and leaves, recycling essential nutrients back into the soil to nourish new plant growth.</span></div>
+<div class="line listline"><span class="marker">•</span><span class="content"><strong>Symbiotic Relationships:</strong> Many mushrooms form partnerships with tree and plant roots (called mycorrhizae). They help plants absorb water and minerals from the soil, while the plants provide the fungi with sugars produced through photosynthesis.</span></div>
+<div class="line">&nbsp;</div>
+<div class="line" style="text-align:center"><strong>Diverse Roles and Uses</strong></div>
+<div class="line">&nbsp;</div>
+<div class="line">&quot;Without fungi, ecosystems would collapse under piles of undecomposed organic waste, and many plants would struggle to survive.&quot;</div>
+<div class="line">&nbsp;</div>
+<div class="line listline"><span class="marker">•</span><span class="content"><strong>Culinary Delights:</strong> Varieties like button mushrooms, shiitake, portobello, and chanterelles are staples in cuisines worldwide, prized for their earthy flavors and textures.</span></div>
+<div class="line listline"><span class="marker">•</span><span class="content"><strong>Medicinal Properties:</strong> Certain species, such as Reishi, Lion&#x27;s Mane, and Turkey Tail, have been studied and used in traditional medicine for centuries due to their bioactive compounds.</span></div>
+<div class="line listline"><span class="marker">•</span><span class="content"><strong>Bioluminescence:</strong> Some rare species of mushrooms, like <em>Mycena chlorophos</em>, actually glow in the dark through a chemical reaction called bioluminescence, emitting a soft green light in dark forests.</span></div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line"><em>Pholiota squarrosa</em> growing at the base of a tree</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">&nbsp;</div>
+<div class="line">A mushroom (probably <em>Russula brevipes</em>) parasitized by <em>Hypomyces lactifluorum</em>, resulting in a &quot;lobster mushroom&quot;</div>
+</div>
+<div class="pages"><h2>Text boxes placed on pages</h2>
+<div class="page" style="aspect-ratio:1113 / 1575;background:#fcfcfc;color:#252525"><div class="textbox" style="left:66.667%;top:32.254%;width:33.333%"><div class="line"><span style="font-size:2.222cqw"><strong>button mushroom</strong></span></div></div></div>
+<div class="page" style="aspect-ratio:1113 / 1575;background:#fcfcfc;color:#252525"><div class="textbox" style="left:16.637%;top:69.510%;width:33.333%;transform:rotate(17deg);transform-origin:2.83% 81.20%"><div class="line"><strong>Amanita muscaria</strong></div></div></div>
+<div class="page" style="aspect-ratio:1113 / 1575;background:#fcfcfc;color:#252525"><div class="textbox" style="left:50.494%;top:34.788%;width:33.333%"><div class="line listline"><span class="marker">☐</span><span class="content"><span style="color:#ef806c;font-size:2.222cqw">mushroom</span></span></div>
+<div class="line checked listline"><span class="marker">☑</span><span class="content"><span style="color:#ef806c;font-size:2.222cqw">mushroom</span></span></div>
+<div class="line listline"><span class="marker">☐</span><span class="content"><span style="color:#ef806c;font-size:2.222cqw">mushroom</span></span></div></div></div>
+</div>
+</body></html>
